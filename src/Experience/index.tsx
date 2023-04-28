@@ -1,13 +1,11 @@
 
 import Rocket from './Rocket';
 import Ground from './Ground';
-import { OrbitControls } from '@react-three/drei';
 
 const Experience = () => {
   return (
     <>
     {/* <Perf position='top-left' /> */}
-      <OrbitControls/>
       <ambientLight/>
       <directionalLight
         castShadow
