@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
+import { Canvas } from '@react-three/fiber';
 import './App.css';
+import { Color, Vector3 } from 'three';
+
+import Experience from './Experience';
 
 function App() {
+
+  function toggleFullscreen() {
+    if (document.fullscreenEnabled) {
+        document.exitFullscreen();
+    } else {
+        document.documentElement.requestFullscreen();
+    }
+}
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Canvas shadows camera={{position: new Vector3(0,2,5) }} onDoubleClick={toggleFullscreen} >
+        <Experience/>
+        <color attach='background' args={[new Color('black')]}/>
+      </Canvas>
+    </>
+    );
 }
 
 export default App;
